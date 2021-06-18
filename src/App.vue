@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <StarRating :initialRate="2"/>
+    <Timer />
   </div>
 </template>
 
 <script>
-import StarRating from './components/StarRating.vue'
+import Timer from './components/Timer.vue'
 
 export default {
   name: 'App',
   components: {
-    StarRating
+    Timer
   }
 }
 </script>
