@@ -1,26 +1,28 @@
 <template>
   <div id="app">
-    <Timer />
+    <DatePicker />
   </div>
 </template>
 
 <script>
-import Timer from './components/Timer.vue'
+import DatePicker from './components/DatePicker.vue'
 
 export default {
   name: 'App',
   components: {
-    Timer
+    DatePicker
   }
 }
 </script>
 
 <style>
+*{
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
