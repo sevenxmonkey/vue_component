@@ -1,20 +1,61 @@
 <template>
   <ul class="folders">
-    <folder :folder="folder"></folder>
+    <folder :folder="root"></folder>
   </ul>
 </template>
 
 <script>
-import Folder from './Folder.vue';
+import Folder from "./Folder.vue";
 
 export default {
-  name: 'Tree',
-  props: {
-    folder: Object
+  name: "Tree",
+  data() {
+    return {
+      root: {
+        text: "Root Folder",
+        leaf: false,
+        expanded: true,
+        children: [
+          {
+            text: "Sub Folder 1",
+            leaf: false,
+            expanded: false,
+            children: [
+              {
+                text: "Sub Sub Folder 1",
+                leaf: false,
+                expanded: false,
+                children: [
+                  {
+                    text: "SomeFile1.js",
+                    leaf: true,
+                  },
+                ],
+              },
+              {
+                text: "Sub Sub Folder 2",
+                leaf: false,
+                expanded: false,
+                children: [],
+              },
+              {
+                text: "SomeFile.txt",
+                leaf: true,
+              },
+            ],
+          },
+          {
+            text: "Sub Folder 2",
+            leaf: false,
+            expanded: false,
+          },
+        ],
+      },
+    };
   },
   components: {
-    Folder
-  }
+    Folder,
+  },
 };
 </script>
 
@@ -24,9 +65,9 @@ ul.folders {
   margin: 0;
   box-sizing: border-box;
   width: 100%;
-  list-style: none
+  list-style: none;
 }
 ul.folders > li:first-child {
-  padding: 1rem 1rem 1rem 0
+  padding: 1rem 1rem 1rem 0;
 }
 </style>

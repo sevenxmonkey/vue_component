@@ -1,58 +1,43 @@
 <template>
   <div id="app">
-    <Tree :folder="root"/>
+    <div class="tabs">
+      <button v-for="tab in tabs" :key="tab" @click="targetTab = tab">
+        {{ tab }}
+      </button>
+    </div>
+    <component :is="targetTab"></component>
   </div>
 </template>
 
 <script>
+import DatePicker from "./components/DatePicker.vue";
+import StarRating from "./components/StarRating.vue";
+import Timer from "./components/Timer.vue";
 import Tree from "./components/Tree.vue";
+import CSSTransition from "./components/CSSTransition.vue";
+import UnitConverter from "./components/UnitConverter.vue";
 
 export default {
   name: "App",
   components: {
+    DatePicker,
+    StarRating,
+    Timer,
     Tree,
+    CSSTransition,
+    UnitConverter,
   },
   data() {
     return {
-      root: {
-        text: "Root Folder",
-        leaf: false,
-        expanded: true,
-        children: [
-          {
-            text: "Sub Folder 1",
-            leaf: false,
-            expanded: false,
-            children: [
-              {
-                text: "Sub Sub Folder 1",
-                leaf: false,
-                expanded: false,
-                children: [
-                  {
-                    text: "SomeFile1.js",
-                    leaf: true,
-                  },
-                ],
-              },
-              {
-                text: "Sub Sub Folder 2",
-                leaf: false,
-                expanded: false,
-                children: [],
-              },
-              {
-                text: "SomeFile.txt",
-                leaf: true,
-              },
-            ],
-          },{
-            text: "Sub Folder 2",
-            leaf: false,
-            expanded: false,
-          }
-        ],
-      },
+      tabs: [
+        "DatePicker",
+        "StarRating",
+        "Timer",
+        "Tree",
+        "CSSTransition",
+        "UnitConverter",
+      ],
+      targetTab: "CSSTransition",
     };
   },
 };
